@@ -5,7 +5,13 @@
 
 
 <mapper namespace="com.brctl.dao.ArticleMapper">
+
     <select id="findById" parameterType="java.lang.String" resultType="Article">
         SELECT * FROM article WHERE id = #{id}
     </select>
+
+    <select id="findAll" resultType="Article">
+        SELECT * FROM article
+    </select>
+
 </mapper>

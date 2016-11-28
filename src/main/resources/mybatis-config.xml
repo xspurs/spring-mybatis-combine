@@ -15,25 +15,20 @@
     <typeAliases>
         <package name="com.brctl.domain"/>
     </typeAliases>
+    <!--
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
-                <!-- 可以使用变量进行替换
-                 -->
-                <property name="driver" value="${database_driver}"/>
-                <property name="url" value="${dev_database_url}"/>
-                <property name="username" value="${dev_database_username}"/>
-                <property name="password" value="${dev_database_password}"/>
-                <!--
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://127.0.0.1:3306/blog?characterEncoding=utf8"/>
-                <property name="username" value="root"/>
-                <property name="password" value="songyunting"/>
-                -->
+                <property name="driver" value="${database.driver}"/>
+                <property name="url" value="${database.url}"/>
+                <property name="username" value="${database.username}"/>
+                <property name="password" value="${database.password}"/>
             </dataSource>
         </environment>
     </environments>
+    -->
+
     <!--
     <mappers>
         <mapper resource="com.brctl.mapper.ArticleMapper.xml"/>

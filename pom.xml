@@ -123,17 +123,42 @@
             </plugin>
         </plugins>
 
-        <!-- !!!!! 至关重要的配置 -->
+
         <resources>
+            <!-- 将指定文件包含入classpath中 -->
+            <!-- 若无此设置，则com.brctl.mapper包中的xml文件将无法被识别 -->
             <resource>
                 <directory>src/main/java</directory>
                 <includes>
                     <include>**/*.xml</include>
-                    <include>**/*.sql</include>
-                    <include>**/*.ftl</include>
                 </includes>
                 <filtering>false</filtering>
             </resource>
+
+            <!-- 使pom中定义的变量可以在src/main/resource目录下的文件中使用 -->
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
         </resources>
     </build>
+
+
+    <profiles>
+        <profile>
+            <id>local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <database.driver>com.mysql.jdbc.Driver</database.driver>
+                <database.url><![CDATA[jdbc:mysql://127.0.0.1:3306/blog?characterEncoding=utf8&amp;serverTimezone=UTC]]></database.url>
+                <database.username>root</database.username>
+                <database.password>songyunting</database.password>
+            </properties>
+        </profile>
+        <profile>
+            <id>develop</id>
+        </profile>
+    </profiles>
 </project>

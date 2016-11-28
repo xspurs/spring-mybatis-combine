@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 /**
  * Created by duanxiaoxing on 16/11/25.
  */
@@ -21,10 +23,18 @@ public class ArticleController {
     @Autowired
     private IArticleService articleService;
 
+
     @RequestMapping(value = "/{id}")
     @ResponseBody
     public HttpEntity<Article> requestBlogById(@PathVariable String id) {
         Article article = articleService.findById(id);
         return new ResponseEntity<>(article, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/all")
+    @ResponseBody
+    public HttpEntity<List<Article>> requestBlogById() {
+        List<Article> articles = articleService.findAll();
+        return new ResponseEntity<>(articles, HttpStatus.OK);
     }
 }

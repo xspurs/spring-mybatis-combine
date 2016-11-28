@@ -3,11 +3,17 @@ package com.brctl.dao;
 import com.brctl.domain.Article;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by duanxiaoxing on 16/11/25.
  */
 public interface ArticleMapper {
 
-    // 根据ID查询文章信息
+    // 鏍规嵁鏂囩珷ID鏌ヨ鏂囩珷
     Article findById(String id);
+
+
+    // 鏌ヨ鍏ㄩ儴鏂囩珷
+    List<Article> findAll();
 }
