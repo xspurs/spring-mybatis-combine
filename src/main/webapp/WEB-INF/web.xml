@@ -24,7 +24,7 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            <!-- 可以有多个配置文件，以半角逗号隔开
+            <!-- 可以有多个配置文件，以半角逗号隔开，也可以使用通配符*
             classpath:spring-common-config.xml,
             -->
             classpath:spring-config.xml

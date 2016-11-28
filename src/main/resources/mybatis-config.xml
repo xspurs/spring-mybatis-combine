@@ -4,6 +4,14 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <properties resource="config.properties" />
+
+    <settings>
+        <!-- Enables automatic mapping from classic database column names A_COLUMN to camel case classic Java property names aColumn
+        true | false
+        False -->
+        <setting name="mapUnderscoreToCamelCase" value="true" />
+    </settings>
+
     <typeAliases>
         <package name="com.brctl.domain"/>
     </typeAliases>
@@ -26,7 +34,9 @@
             </dataSource>
         </environment>
     </environments>
+    <!--
     <mappers>
-        <mapper resource="org/mybatis/example/BlogMapper.xml"/>
+        <mapper resource="com.brctl.mapper.ArticleMapper.xml"/>
     </mappers>
+    -->
 </configuration>

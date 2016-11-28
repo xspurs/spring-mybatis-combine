@@ -1,6 +1,6 @@
 package com.brctl.service.impl;
 
-import com.brctl.dao.IArticleDao;
+import com.brctl.dao.ArticleMapper;
 import com.brctl.domain.Article;
 import com.brctl.service.IArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +13,10 @@ import org.springframework.stereotype.Service;
 public class ArticleService implements IArticleService {
 
     @Autowired
-    private IArticleDao articleDao;
+    private ArticleMapper articleMapper;
 
     @Override
     public Article findById(String id) {
-        return this.articleDao.findById(id);
+        return this.articleMapper.findById(id);
     }
 }

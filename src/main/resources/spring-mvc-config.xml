@@ -20,9 +20,10 @@
     <mvc:resources mapping="/resources/**" location="/resources/" />
     -->
 
-    <!-- 未知，有和没有似乎并没有什么影响
-    <mvc:annotation-driven/>
+    <!-- 若不存在
+    406 Not Acceptable
     -->
+    <mvc:annotation-driven/>
 
     <!--
         将Controller返回的String值映射到对应prefix目录下的jsp文件

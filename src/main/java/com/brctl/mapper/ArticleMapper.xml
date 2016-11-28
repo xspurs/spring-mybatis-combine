@@ -2,11 +2,10 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!--
-<mapper namespace="org.mybatis.example.BlogMapper">
--->
-<mapper namespace="com.brctl.dao.IArticleDao">
-    <select id="selectArticle" resultType="Article">
+
+
+<mapper namespace="com.brctl.dao.ArticleMapper">
+    <select id="findById" parameterType="java.lang.String" resultType="Article">
         SELECT * FROM article WHERE id = #{id}
     </select>
 </mapper>
