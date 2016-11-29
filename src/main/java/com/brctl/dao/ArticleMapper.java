@@ -1,7 +1,6 @@
 package com.brctl.dao;
 
 import com.brctl.domain.Article;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 

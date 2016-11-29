@@ -6,8 +6,25 @@
 
 <mapper namespace="com.brctl.dao.ArticleMapper">
 
+    <sql id="columns">
+        id,
+        title,
+        <!--
+        abstractContent,
+        -->
+        content,
+        author,
+        createTime,
+        type,
+        deleteFlag
+    </sql>
+
+
     <select id="findById" parameterType="java.lang.String" resultType="Article">
-        SELECT * FROM article WHERE id = #{id}
+        SELECT
+        <include refid="columns"/>,
+        abstract AS abstractContent
+        FROM article WHERE id = #{id}
     </select>
 
     <select id="findAll" resultType="Article">
