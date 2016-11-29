@@ -15,6 +15,8 @@
         <mybatis.spring.version>1.3.0</mybatis.spring.version>
         <druid.version>1.0.26</druid.version>
         <mysql.version>6.0.5</mysql.version>
+        <slf4j.version>1.7.2</slf4j.version>
+        <log4j.version>1.2.17</log4j.version>
     </properties>
     <dependencies>
         <dependency>
@@ -104,6 +106,20 @@
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.databind.version}</version>
         </dependency>
+
+        <!-- slf4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+
+        <!-- log4j -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
     </dependencies>
 
 
@@ -159,6 +175,18 @@
         </profile>
         <profile>
             <id>develop</id>
+            <properties>
+                <database.driver>com.mysql.jdbc.Driver</database.driver>
+                <database.url><![CDATA[jdbc:mysql://127.0.0.1:3306/blog?characterEncoding=utf8&amp;serverTimezone=UTC]]></database.url>
+                <database.username>root</database.username>
+                <database.password>root</database.password>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+        </profile>
+        <profile>
+            <id>product</id>
         </profile>
     </profiles>
 </project>
