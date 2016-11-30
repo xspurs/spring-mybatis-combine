@@ -6,29 +6,36 @@
 
 <mapper namespace="com.brctl.dao.ArticleMapper">
 
+    <!-- 指定<sql>标签以便复用 -->
+    <!-- 在<sql>标签中的列名，需要与数据表中的列名 ｜完全一致｜ -->
     <sql id="columns">
         id,
         title,
-        <!--
-        abstractContent,
-        -->
         content,
         author,
-        createTime,
+        create_time,
         type,
-        deleteFlag
+        delete_flag
     </sql>
 
-
+    <!-- 根据文章ID查询文章 -->
     <select id="findById" parameterType="java.lang.String" resultType="Article">
         SELECT
         <include refid="columns"/>,
+        <!-- 当数据表中的列名与VO中对应的属性名称不同或不能自动转换时，需要使用SQL中的AS关键字做转换 -->
         abstract AS abstractContent
         FROM article WHERE id = #{id}
     </select>
 
+    <!-- 查询全部文章 -->
     <select id="findAll" resultType="Article">
-        SELECT * FROM article
+        SELECT
+        <include refid="columns"/>,
+        abstract AS abstractContent
+        FROM article
     </select>
+
+
+    <!-- TODO 补充update／insert／delete操作示例 -->
 
 </mapper>

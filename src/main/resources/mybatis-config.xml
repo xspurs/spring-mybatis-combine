@@ -12,9 +12,16 @@
         <setting name="mapUnderscoreToCamelCase" value="true" />
     </settings>
 
+    <!-- 使用该配置项配置后，在Mapper.xml中可以直接使用类名，无需写全包名前缀 -->
     <typeAliases>
+        <!-- 单独指定
+        <typeAlias type="Article" alias="com.brctl.domain.Article"/>
+        -->
+        <!-- 按包指定 -->
         <package name="com.brctl.domain"/>
     </typeAliases>
+
+    <!-- 在使用数据库连接池后，无需在此配置dataSource -->
     <!--
     <environments default="development">
         <environment id="development">
@@ -29,6 +36,7 @@
     </environments>
     -->
 
+    <!-- 使用mybatis-spring后，可以将Mapper.xml交由Spring管理 -->
     <!--
     <mappers>
         <mapper resource="com.brctl.mapper.ArticleMapper.xml"/>
