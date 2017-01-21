@@ -18,6 +18,14 @@ SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
+-- Create and use database, which
+-- name is 'blog'
+-- ----------------------------
+DROP DATABASE IF EXISTS `blog`;
+CREATE DATABASE `blog`;
+USE `blog`;
+
+-- ----------------------------
 --  Table structure for `article`
 -- ----------------------------
 DROP TABLE IF EXISTS `article`;
