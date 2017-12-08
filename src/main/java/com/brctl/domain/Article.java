@@ -1,11 +1,15 @@
 package com.brctl.domain;
 
+import lombok.Data;
+
 import java.sql.Timestamp;
 
 /**
- * 博客实体类
- * Created by duanxiaoxing on 16/11/25.
+ * Article Bean
+ * @author Xitongjiagoushi
+ * @created 2017/12/8
  */
+@Data
 public class Article implements java.io.Serializable {
 
     private String id;  // ID
@@ -19,70 +23,4 @@ public class Article implements java.io.Serializable {
     private String type;  // 类型
     private String deleteFlag;  // 删除标记
 
-    /*
-        getters & setters
-     */
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getAbstractContent() {
-        return abstractContent;
-    }
-
-    public void setAbstractContent(String abstractContent) {
-        this.abstractContent = abstractContent;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public Timestamp getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Timestamp createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getDeleteFlag() {
-        return deleteFlag;
-    }
-
-    public void setDeleteFlag(String deleteFlag) {
-        this.deleteFlag = deleteFlag;
-    }
 }

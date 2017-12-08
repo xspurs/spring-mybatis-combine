@@ -1,0 +1,39 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<configuration status="warn">
+    <Properties>
+        <Property name="LOG_HOME">/tmp/logs</Property>
+    </Properties>
+
+    <appenders>
+        <Console name="ConsoleAppender" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="%5p %d{yyyy-MM-dd HH:mm:ss} %c %L Line - %m %n" />
+        </Console>
+        <!-- request日志 -->
+        <File name="RequestAppender" fileName="${LOG_HOME}/request.log">
+            <PatternLayout>
+                <pattern>%5p %d{yyyy-MM-dd HH:mm:ss} %c %L Line - %m %n</pattern>
+            </PatternLayout>
+        </File>
+        <!-- error日志 -->
+        <File name="ErrorAppender" fileName="${LOG_HOME}/error.log">
+            <PatternLayout>
+                <pattern>%5p %d{yyyy-MM-dd HH:mm:ss} %c %L Line - %m %n</pattern>
+            </PatternLayout>
+            <Filters>
+                <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </File>
+    </appenders>
+
+    <loggers>
+        <logger name="com.brctl" level="info" includeLocation="true" additivity="false">
+            <appender-ref ref="RequestAppender"/>
+            <appender-ref ref="ErrorAppender"/>
+            <appender-ref ref="ConsoleAppender"/>
+        </logger>
+        <!--root日志-->
+        <root level="info">
+            <appender-ref ref="ConsoleAppender"/>
+        </root>
+    </loggers>
+</configuration>

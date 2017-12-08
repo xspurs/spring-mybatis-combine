@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * Created by duanxiaoxing on 16/11/25.
+ * Article Service
+ * @author Xitongjiagoushi
+ * @created 2017/12/8
  */
 @Service
 public class ArticleService implements IArticleService {

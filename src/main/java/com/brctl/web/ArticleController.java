@@ -2,6 +2,7 @@ package com.brctl.web;
 
 import com.brctl.domain.Article;
 import com.brctl.service.IArticleService;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,13 +17,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 /**
- * Created by duanxiaoxing on 16/11/25.
+ * Article Controller
+ * @author Xitongjiagoushi
+ * @created 2017/12/8
  */
 @Controller
 @RequestMapping("/article")
+@Slf4j
 public class ArticleController {
-
-    private final static Logger logger = LoggerFactory.getLogger(ArticleController.class);
 
     @Autowired
     private IArticleService articleService;
@@ -30,7 +32,7 @@ public class ArticleController {
     @RequestMapping(value = "/{id}")
     @ResponseBody
     public HttpEntity<Article> requestArticleById(@PathVariable String id) {
-        logger.info("==========根据ID:{}查询文章==========", id);
+        log.info("==========根据查询文章，id: {}==========", id);
         Article article = articleService.findById(id);
         return new ResponseEntity<>(article, HttpStatus.OK);
     }
@@ -38,7 +40,7 @@ public class ArticleController {
     @RequestMapping(value = "/all")
     @ResponseBody
     public HttpEntity<List<Article>> requestAllArticles() {
-        logger.info("==========查询全部文章==========");
+        log.info("==========查询全部文章==========");
         List<Article> articles = articleService.findAll();
         return new ResponseEntity<>(articles, HttpStatus.OK);
     }

@@ -9,7 +9,7 @@
     <url>http://maven.apache.org</url>
     <properties>
         <junit.version>4.12</junit.version>
-        <spring.webmvc.version>4.3.2.RELEASE</spring.webmvc.version>
+        <spring.version>4.3.2.RELEASE</spring.version>
         <jackson.databind.version>2.8.5</jackson.databind.version>
         <mybatis.version>3.4.1</mybatis.version>
         <mybatis.spring.version>1.3.0</mybatis.spring.version>
@@ -17,6 +17,7 @@
         <mysql.version>6.0.5</mysql.version>
         <slf4j.version>1.7.2</slf4j.version>
         <log4j.version>1.2.17</log4j.version>
+        <lombok.version>1.16.10</lombok.version>
     </properties>
     <dependencies>
         <dependency>
@@ -30,45 +31,45 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>${spring.webmvc.version}</version>
+            <version>${spring.version}</version>
         </dependency>
         <!-- spring-web -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
-            <version>${spring.webmvc.version}</version>
+            <version>${spring.version}</version>
         </dependency>
         <!-- spring-core -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>${spring.webmvc.version}</version>
+            <version>${spring.version}</version>
         </dependency>
         <!-- spring-context -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${spring.webmvc.version}</version>
+            <version>${spring.version}</version>
         </dependency>
         <!-- spring-test -->
         <!-- 与JUnit相结合，提供SpringJUnit4ClassRunner等类 -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>${spring.webmvc.version}</version>
+            <version>${spring.version}</version>
         </dependency>
         <!-- spring-tx -->
         <!-- tx means transaction -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
-            <version>${spring.webmvc.version}</version>
+            <version>${spring.version}</version>
         </dependency>
         <!-- spring-jdbc -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
-            <version>${spring.webmvc.version}</version>
+            <version>${spring.version}</version>
         </dependency>
 
 
@@ -107,18 +108,39 @@
             <version>${jackson.databind.version}</version>
         </dependency>
 
-        <!-- slf4j -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${slf4j.version}</version>
-        </dependency>
 
-        <!-- log4j -->
+        <!-- log4j2 begins -->
+        <!-- TODO 梳理需要哪些依赖 -->
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>${log4j.version}</version>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.10.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.10.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>2.10.0</version>
+        </dependency>
+        <!-- log4j2 begins -->
+
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+        
+        <!-- servlet-api -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
@@ -167,16 +189,14 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <database.driver>com.mysql.jdbc.Driver</database.driver>
                 <database.url><![CDATA[jdbc:mysql://127.0.0.1:3306/blog?characterEncoding=utf8&amp;serverTimezone=UTC]]></database.url>
                 <database.username>root</database.username>
-                <database.password>songyunting</database.password>
+                <database.password>root</database.password>
             </properties>
         </profile>
         <profile>
             <id>develop</id>
             <properties>
-                <database.driver>com.mysql.jdbc.Driver</database.driver>
                 <database.url><![CDATA[jdbc:mysql://127.0.0.1:3306/blog?characterEncoding=utf8&amp;serverTimezone=UTC]]></database.url>
                 <database.username>root</database.username>
                 <database.password>root</database.password>

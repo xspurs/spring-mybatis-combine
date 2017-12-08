@@ -5,7 +5,9 @@ import com.brctl.domain.Article;
 import java.util.List;
 
 /**
- * Created by duanxiaoxing on 16/11/25.
+ * Article Service Interface
+ * @author Xitongjiagoushi
+ * @created 2017/12/8
  */
 public interface IArticleService {
 
